@@ -18,8 +18,9 @@
 
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
-            <form action="{{ route('recetas.store') }}" method="post" enctype="multipart/form-data" novalidate>
+            <form action="{{ route('recetas.update', [$receta->id]) }}" method="post" enctype="multipart/form-data" novalidate>
                 @csrf
+                @method('put')
                 <div class="form-group">
                     <label for="titulo">Titulo receta</label>
 

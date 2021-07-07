@@ -21,6 +21,8 @@ Route::get('/recetas/create', [App\Http\Controllers\RecetaController::class , 'c
 Route::post('/recetas', [App\Http\Controllers\RecetaController::class , 'store'] )->name('recetas.store');
 Route::get('/recetas/{receta}', [App\Http\Controllers\RecetaController::class , 'show'])->name('recetas.show');
 Route::get('/recetas/{receta}/edit', [App\Http\Controllers\RecetaController::class , 'edit'])->name('recetas.edit');
+Route::put('/recetas/{receta}', [App\Http\Controllers\RecetaController::class , 'update'])->name('recetas.update');
+Route::delete('/recetas/{receta}', [App\Http\Controllers\RecetaController::class , 'destroy'])->name('recetas.destroy');
 
 
 
