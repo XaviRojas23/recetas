@@ -34,6 +34,14 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected static function boot(){
+        parent::boot();
+
+        static::created(function ($user){
+            $user->perfil()->create();
+        });
+    }
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -46,5 +54,9 @@ class User extends Authenticatable
     public function recetas()
     {
         return $this->hasMany(Receta::class);
+    }
+
+    public function perfil(){
+        return $this->hasOne(Perfil::class);
     }
 }
