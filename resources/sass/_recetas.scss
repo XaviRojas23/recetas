@@ -4,10 +4,14 @@ body {
 
 trix-editor {
     min-height: 400px;
-    overflow-y: auto;
+    height: auto!important;
 }
 
 .bg-primary .navbar-brand {
     font-family: $font-family-sans-serif;
     font-size: 2rem;
+}
+
+.icono {
+    width: 30px;
 }

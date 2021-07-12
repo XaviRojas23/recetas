@@ -10008,10 +10008,14 @@ body {
 
 trix-editor {
   min-height: 400px;
-  overflow-y: auto;
+  height: auto !important;
 }
 
 .bg-primary .navbar-brand {
   font-family: "Fredoka", cursive;
   font-size: 2rem;
+}
+
+.icono {
+  width: 30px;
 }

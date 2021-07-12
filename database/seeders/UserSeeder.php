@@ -23,15 +23,6 @@ class UserSeeder extends Seeder
             'URL'=>'http://youtube.es',
         ]);
 
-        $user->perfil()->create();
-
-        $user = User::create([
-            'name'=>'Xavi',
-            'email'=>'xavi@gmail.com',
-            'password'=>Hash::make('12345678'),
-            'URL'=>'http://youtube.es',
-        ]);
-
-        $user->perfil()->create();
+        //$user->perfil()->create();
     }
 }

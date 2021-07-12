@@ -34,10 +34,12 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    protected static function boot(){
+    protected static function boot()
+    {
         parent::boot();
 
-        static::created(function ($user){
+        static::created(function ($user)
+        {
             $user->perfil()->create();
         });
     }
@@ -56,7 +58,8 @@ class User extends Authenticatable
         return $this->hasMany(Receta::class);
     }
 
-    public function perfil(){
+    public function perfil()
+    {
         return $this->hasOne(Perfil::class);
     }
 }

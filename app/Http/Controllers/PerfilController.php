@@ -13,6 +13,14 @@ class PerfilController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'show']);
+
+    }
+
     public function index()
     {
         //
@@ -60,6 +68,9 @@ class PerfilController extends Controller
      */
     public function edit(Perfil $perfil)
     {
+        $this->authorize('update', $perfil);
+
+
         return view('perfiles.edit' ,  compact('perfil'));
     }
 
@@ -72,6 +83,8 @@ class PerfilController extends Controller
      */
     public function update(Request $request, Perfil $perfil)
     {
+        $this->authorize('update', $perfil);
+
         $data = request()->validate([
             'nombre' => 'required',
             'biografia' => 'required'
