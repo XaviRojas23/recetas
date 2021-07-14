@@ -49,6 +49,16 @@
                 <h3 class="my-3 text-primary">Preparacion</h3>
                 {!! $receta->preparacion !!}
             </div>
+
+            <div class="justify-content-center row text-center">
+                <like-button
+                    receta-id="{{$receta->id}}"
+                    like = "{{$like}}"
+                    likes = "{{$likes}}"   
+                ></like-button>
+            </div>
+
+
         </div>
     </article>
 

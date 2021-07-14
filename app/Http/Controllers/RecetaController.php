@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
+use App\Http\Controllers\Controller;
+
+
 
 class RecetaController extends Controller
 {
@@ -22,9 +25,18 @@ class RecetaController extends Controller
      */
     public function index()
     {
-        //Auth::user()->recetas->dd();
-        $recetas = auth()->user()->recetas;
-        return view('recetas.index')->with('recetas' , $recetas);
+        $usuario = auth()->user();
+
+        $recetas = Receta::where('user_id', $usuario->id)->paginate(10);
+        //Auth::user()->recetas->dd()
+
+
+        
+        return view('recetas.index')
+        ->with('recetas' , $recetas)
+        ->with('usuario' , $usuario);
+
+
 
 
     }
@@ -104,7 +116,11 @@ class RecetaController extends Controller
      */
     public function show(Receta $receta)
     {
-        return view('recetas.show' , compact('receta'));
+        $like = (auth()->user()) ? auth()->user()->meGusta->contains($receta->id) : false;    
+
+        $likes = $receta->likes->count();
+
+        return view('recetas.show' , compact('receta', 'like', 'likes'));
     }
 
     /**
