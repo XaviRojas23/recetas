@@ -14,8 +14,8 @@
                 </p>
                 <p>{{count($receta->likes)}} les gusto </p>
             </div>
-            <p class="card-text">{{Str::words( strip_tags ($nueva->preparacion), 20, '...')}}</p>
-            <a href="{{route('recetas.show', ['receta'=> $nueva->id])}}" class="btn btn-primary d-block btn-receta">Ver receta</a>
+            <p class="card-text">{{Str::words( strip_tags ($receta->preparacion), 20, '...')}}</p>
+            <a href="{{route('recetas.show', ['receta'=> $receta->id])}}" class="btn btn-primary d-block btn-receta">Ver receta</a>
         </div>
     </div>
 </div>

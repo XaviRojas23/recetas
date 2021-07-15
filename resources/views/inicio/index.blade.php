@@ -4,6 +4,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
 @endsection
 
+@section('hero')
+    
+    <div class="hero-categorias">
+        <form action="{{route('buscar.show')}}" method="get" class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-md-4 texto-buscar">
+                    <p class="display-4">Buscar receta</p>
+                    
+                    <input type="search" name="buscar" class="form-control" placeholder="Buscar receta">
+                </div>
+            </div>
+        </form>
+    </div>
+
+@endsection
+
 @section('content')
     <div class="container nuevas-recetas">
         <h1 class="titulo-categoria text-uppercase mt-4 mb-4">Ultimas recetas</h1>
